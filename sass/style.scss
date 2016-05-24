@@ -1,0 +1,1382 @@
+/*
+* EPIC - Tailor-Made Coming Soon Template
+* Build Date: April 2016
+* Last Update: April 2016
+* Author: Madeon08
+* Copyright (C) 2016 Madeon08
+* This is a premium product available exclusively here : http://themeforest.net/user/Madeon08/portfolio
+*/
+
+/*  TABLE OF CONTENTS
+    ---------------------------
+    *. @Import & Reset
+    1. Generic styles
+    2. DESIGN
+    3. HOME
+    4. INTRO
+    5. PORTFOLIO
+    6. NEWSLETTER
+    7. CONTACT
+    8. Footer
+    9. Triangle separator
+   10. Media Queries
+*/
+
+/* ------------------------------------- */
+/* *. @Import & Reset .................. */
+/* ------------------------------------- */
+
+/* http://bourbon.io/ Sass Mixin Library */
+@import "bourbon";
+
+// colors, fonts, sizes etc...
+@import "vars";
+
+// custom mixins
+@import "mixins";
+
+/* custom CSS files */
+@import "font-awesome.min.css";
+@import "ionicons.min.css";
+@import "bootstrap.min.css";
+@import "animate.css";
+@import "vegas.min.css";
+@import "photoswipe.css";
+@import "default-skin/default-skin.css";
+
+/* Google Fonts */
+@import url("http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700");
+
+@import url("https://fonts.googleapis.com/css?family=Raleway:300,400,500,700");
+
+@import url("https://fonts.googleapis.com/css?family=Montserrat:400,700");
+
+/*
+* http://meyerweb.com/eric/tools/css/reset/ 
+* v2.0 | 20110126
+* License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section, main {
+    display: block;
+}
+
+body {
+    line-height: 1;
+}
+
+ol, ul {
+    list-style: none;
+}
+
+blockquote, q {
+    quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/* ------------------------------------- */
+/* 1. Generic styles ................... */
+/* ------------------------------------- */
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    background: $shark;
+    font-family: $open-font;
+    color: $white;
+    @include font-smoothing(on);
+    font-weight: normal;
+    font-style: normal;
+    font-size: 1.4rem;
+    line-height: 1.8;
+    font-weight: $normal;
+    letter-spacing: 0;
+    position: absolute;
+    overflow:hidden;
+    height: 100%;
+}
+
+.scroll-touch {
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    width: 100%;
+}
+
+body, input, select, textarea {
+    @include bezier-transition(all, $fast-transition, cubic-bezier(0.42, 0, 0.58, 1));
+}
+
+a {
+    @include bezier-transition(all, $fast-transition, cubic-bezier(0.42, 0, 0.58, 1));
+    cursor: pointer;
+    text-decoration: none;
+    color: $white;
+
+    &:hover {
+        color: darken($radical-red, 5%);
+        text-decoration: none !important;
+        outline: none !important;
+    }
+
+    &:active, &:focus {
+        outline: none !important;
+        text-decoration: none !important;
+        color: $white;
+    }
+}
+
+button {
+    @include bezier-transition(all, $fast-transition, cubic-bezier(0.42, 0, 0.58, 1));
+    cursor: pointer;
+
+    &:hover, &:active, &:focus {
+        outline: none !important;
+        text-decoration: none !important;
+        color: $shark;
+    }
+}
+
+strong, b {
+    font-weight: $bold;
+}
+
+em, i {
+    font-style: italic;
+}
+
+i {
+    color: $black;
+    @include bezier-transition(all, $fast-transition, cubic-bezier(0.42, 0, 0.58, 1));
+}
+
+p {
+    font-family: $raleway-font;
+    margin: 0;
+    font-size: 1.4rem;
+    line-height: 1.8;
+    color: $dove-gray;
+    font-weight: $normal;
+
+    &.subtitle {
+        text-align: center;
+    }
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: $black;
+    font-family: $raleway-font;
+    font-weight: $normal;
+    line-height: 1;
+    margin: 0 0 1.5rem 0;
+
+    a {
+        color: inherit;
+        text-decoration: none;
+    }
+
+    small {
+        color: inherit;
+    }
+}
+
+h1 {
+    font-family: $montserrat-font;
+    color: $white;
+    font-size: 8rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+h2 {
+    font-size: 3.3rem;
+    text-align: center;
+}
+
+h3 {
+    font-size: 2.3rem;
+}
+
+h4 {
+    font-size: 1.8rem;
+}
+
+h5 {
+    font-size: 1.6rem;
+}
+
+h6 {
+    font-size: 1.2rem;
+}
+
+sub {
+    font-size: 0.8em;
+    position: relative;
+    top: 0.5em;
+}
+
+sup {
+    font-size: 0.8em;
+    position: relative;
+    top: -0.5em;
+}
+
+.clear {
+    clear: both;
+}
+
+.display-none {
+    display: none !important;
+}
+
+.align-left {
+    text-align: left;
+}
+
+.align-center {
+    text-align: center;
+}
+
+.align-right {
+    text-align: right;
+}
+
+.no-margin-bottom {
+    margin-bottom: 0;
+}
+
+.opacity-0 {
+    opacity: 0 !important;
+    visibility: hidden !important;
+}
+
+.opacity-03 {
+    opacity: 0.3 !important;
+}
+
+.opacity-1 {
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+.index-999 {
+    z-index: -999 !important;
+}
+
+.vegas-overlay {
+    opacity: 0.4;
+    background: $shark;
+}
+
+.dark-overlay {
+    .vegas-overlay {
+    opacity: 0.6;
+    background: darken($shark, 10%);
+}
+}
+
+.bold-text {
+    font-weight: 700;
+    color: $radical-red;
+}
+
+#getting-started {
+    font-family: $open-font;
+}
+
+.tasty-www {
+    letter-spacing: -2.5rem;
+    margin-right: 2.5rem;
+
+    span {
+        color: $razzmatazz;
+
+        &:first-child {
+            color: $caribbean-green;
+        }
+
+        &:last-child {
+            color: $school-bus-yellow;
+        }
+    }
+}
+
+#loading {
+    background: darken($shark, 3%);
+    position: fixed;
+    z-index: 999;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+
+    svg {
+        position: absolute;
+        top: calc(50% - 35px);
+        left: calc(50% - 35px);
+    }
+
+    span {
+        position: absolute;
+        text-transform: uppercase;
+        font-size: 1.2rem;
+        font-weight: 500;
+        color: lighten($shark, 15%);
+        letter-spacing: 0.1rem;
+        top: 54%;
+        width: 100%;
+        left: 0;
+        right: 0;
+        text-align: center;
+    }
+    
+
+    .loader-lines .line_1,
+    .loader-lines .line_2,
+    .loader-lines .line_3,
+    .loader-lines .line_4,
+    .loader-lines .line_5,
+    .loader-lines .line_6 {
+      @include transform-origin(center);
+      @include animation(grow 1s infinite);
+    }
+
+    .loader-lines .line_2 {
+      animation-delay: 150ms;
+    }
+
+    .loader-lines .line_3 {
+      animation-delay: 350ms;
+    }
+
+    .loader-lines .line_4 {
+      animation-delay: 550ms;
+    }
+
+    .loader-lines .line_5 {
+      animation-delay: 750ms;
+    }
+
+    .loader-lines .line_6 {
+      animation-delay: 900ms;
+    }
+
+    @include keyframes(grow) {
+      10% {
+        @include transform(scale(1.5));
+        opacity: 1;
+      }
+    }
+}
+
+/* ------------------------------------- */
+/* 2. DESIGN ........................... */
+/* ------------------------------------- */
+
+#slideshow {
+    position: fixed;
+    z-index: -10;
+    width: 100vw;
+    height: 102vh !important;
+    left: 0px;
+    top: 0px;
+    backface-visibility: hidden;
+}
+
+.scroll-indicator {
+    @include border-radius(100%);
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    left: calc(50% - 30px);
+    bottom: 1rem;
+    cursor: pointer;
+    @include bezier-transition(all, $fast-transition, cubic-bezier(0.42, 0, 0.58, 1));
+
+    &:hover {
+        bottom: 0.5rem;
+    }
+
+    &.go-top {
+        @include transform(rotate(180deg));
+        z-index: 50;
+        bottom: 1.5rem;
+
+        &:hover {
+            bottom: 2rem;
+        }
+
+        &:before {
+            background-color: $white;
+        }
+
+        i {
+            background: $white;
+            color: $black;
+        }
+
+        &:after {
+            background-color: $white;
+        }
+    }
+
+    &:before, &:after {
+        content: "";
+        top: 0;
+        left: 0;
+        background-color: $torch-red;
+        width: 60px;
+        height: 60px;
+        @include border-radius(100%);
+        @include animation-fill-mode(both);
+        position: absolute;
+        opacity: 0;
+        @include animation(clickMe 1.8s 333ms infinite ease-out);
+    }
+
+    i {
+        width: 30px;
+        height: 30px;
+        display: block;
+        background: rgba($torch-red, 1);
+        color: $white;
+        text-align: center;
+        line-height: 30px;
+        font-size: 2rem;
+        background-size: 12px;
+        @include border-radius(100%);
+        position: absolute;
+        left: 15px;
+        top: 15px;
+        z-index: 100;
+    }
+
+    &:after {
+        @include animation(clickMe 1.8s 777ms infinite ease-out);
+    }
+}
+
+@include keyframes(clickMe) {
+    0% {
+        opacity: 0;
+        @include transform(scale(0));
+    }
+
+    5% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+
+#stars, #stars2, #stars3 {
+    position: fixed;
+    top: 0;
+    left: 0;
+    margin-left: 0;
+    margin-top: 0;
+    background: transparent;
+
+    &:after {
+        content: " ";
+        position: absolute;
+        top: 2000px;
+        background: transparent;
+    }
+}
+
+#stars {
+    width: 1px;
+    height: 1px;
+    box-shadow: $shadows-small;
+    @include animation(animStar 50s infinite linear);
+
+    &:after {
+        width: 1px;
+        height: 1px;
+        box-shadow: $shadows-small;
+    }
+}
+
+#stars2 {
+    width: 2px;
+    height: 2px;
+    box-shadow: $shadows-medium;
+    @include border-radius(50%);
+    @include animation(animStar 100s infinite linear);
+
+    &:after {
+        width: 2px;
+        height: 2px;
+        box-shadow: $shadows-medium;
+    }
+}
+
+#stars3 {
+    width: 3px;
+    height: 3px;
+    box-shadow: $shadows-big;
+    @include border-radius(50%);
+    @include animation(animStar 150s infinite linear);
+
+    &:after {
+        width: 3px;
+        height: 3px;
+        box-shadow: $shadows-big;
+    }
+}
+
+@include keyframes(animStar) {
+    from {
+        @include transform(translateY(0px));
+    }
+
+    to {
+        @include transform(translateY(-2000px));
+    }
+}
+
+
+#particles-js {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -5;
+}
+
+section {
+    position: relative;
+    z-index: 20;
+
+    /* ------------------------------------- */
+    /* 3. HOME ............................. */
+    /* ------------------------------------- */
+
+    &#home {
+        position: fixed;
+        z-index: 10;
+        width: 100vw;
+        height: 100vh;
+
+        .brand-logo {
+            position: absolute;
+            left: 50%;
+            @include transform(translateX(-50%));
+            top: 5%;
+            max-width: 130px;
+        }
+
+        .content {
+            position: relative;
+            z-index: 0;
+            left: 0;
+            top: 50vh;
+            @include transform(translateY(-50%));
+            width: 100%;
+            text-align: center;
+            padding: 0 10%;
+            margin-left: auto;
+            margin-right: auto;
+            @include bezier-transition(all, $medium-transition, cubic-bezier(0, 0, 0.58, 1));
+            @include font-smoothing;
+
+            p {
+                color: rgba($white, 0.9);
+                font-size: 1.8rem;
+                margin: 1.5rem 0 2rem;
+            }
+
+            nav {
+                display: inline-block;
+                width: 100%;
+
+                li {
+                    display: inline-block;
+                }
+
+                .light-btn {
+                    font-family: $montserrat-font;
+                    background: transparent;
+                    font-weight: $bold;
+                    padding: 0.7em 2em;
+                    color: $white;
+                    margin-right: 10px;
+                    @include border-radius(0);
+                    border: 3px solid $white;
+                    display: block;
+                    float: left;
+
+                    &:hover {
+                        background: $white;
+                        color: $shark;
+                        border-color: $white;
+                    }
+                }
+
+                .action-btn {
+                    font-family: $montserrat-font;
+                    background: $white;
+                    font-weight: $bold;
+                    padding: 0.7em 2em;
+                    color: $ebony-clay;
+                    @include border-radius(0);
+                    border: 3px solid $white;
+                    display: block;
+                    float: left;
+
+                    &:hover {
+                        background: transparent;
+                        color: $white;
+                    }
+
+                    &:active, &:focus {
+                        background: $white;
+                        color: $black;
+                    }
+                }
+            }
+        }
+    }
+
+    /* ------------------------------------- */
+    /* 4. INTRO ............................ */
+    /* ------------------------------------- */
+
+    &#intro {
+        background: $white;
+        padding: 100px 0 10rem;
+
+        .item-service {
+            text-align: center;
+            margin-top: 3rem;
+
+            i {
+                font-size: 5rem;
+            }
+
+            &:hover {
+                i {
+                    color: $radical-red;
+                }
+            }
+        }
+    }
+
+    /* ------------------------------------- */
+    /* 5. PORTFOLIO ........................ */
+    /* ------------------------------------- */
+
+    &#portfolio {
+        background: $shark;
+
+        .portfolio {
+            overflow: hidden;
+
+            figure {
+                padding: 0 !important;
+                overflow: hidden;
+
+                .gallery-link {
+                    position: relative;
+                    float: left;
+                    width: 100%;
+                    height: 100%;
+                    overflow: hidden;
+
+                    .gallery-img {
+                        opacity: 0;
+                    }
+
+                    .photo {
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        z-index: -20;
+                        background-repeat: no-repeat;
+                        background-position: center;
+                        background-size: cover;
+                        @include bezier-transition(all, 0.5s, ease-out);
+                        opacity: 0.4;
+                    }
+                }
+
+                figcaption {
+                    background: transparent;
+                    position: absolute;
+                    text-align: center;
+                    width: 100%;
+                    z-index: -10;
+                    top: 50%;
+                    @include transform(translateY(-50%));
+                    left: 0;
+                    @include bezier-transition(all, 0.5s, ease-out);
+
+                    .photo-details {
+                        h4 {
+                            font-family: $montserrat-font;
+                            text-transform: uppercase;
+                            color: $white;
+                            padding-left: 15px;
+                        }
+
+                        p {
+                            display: none;
+                        }
+                    }
+                }
+
+                &:hover {
+                    figcaption {
+                        opacity: 0;
+                        visibility: hidden;
+                    }
+
+                    .photo {
+                        opacity: 1;
+                    }
+                }
+            }
+
+            div {
+                padding: 0;
+                overflow: hidden;
+            }
+        }
+    }
+
+    /* ------------------------------------- */
+    /* 6. NEWSLETTER ....................... */
+    /* ------------------------------------- */
+
+    &#newsletter {
+        background: $shark;
+        padding: 10rem 0 0;
+        overflow: hidden;
+
+        h2 {
+            color: $white;
+        }
+
+        p.subtitle {
+            color: $white;
+        }
+
+        #subscribe {
+            p {
+                font-weight: $normal;
+            }
+
+            #notifyMe {
+                max-width: 500px;
+                margin: auto;
+                margin-top: 2em;
+
+                .form-group {
+                    margin-bottom: 1em;
+
+                    .fa {
+                        color: $white;
+                        position: absolute;
+                        text-align: center;
+                        top: 15px;
+                        left: 15px;
+                    }
+
+                    .form-control {
+                        text-align: left;
+                        background: rgba($shark, 0.4);
+                        border: 2px solid $white;
+                        @include border-radius(0);
+                        box-shadow: none;
+                        height: 5rem;
+                        font-weight: $semi-bold;
+                        outline: medium none;
+                        padding: 0 1em;
+                        width: 68%;
+                        margin: auto;
+                        float: left;
+                        color: $white;
+                        @include bezier-transition(all, 0.3s, cubic-bezier(0, 0, 0.58, 1));
+
+                        &:hover, &:focus {
+                            box-shadow: none;
+                        }
+
+                        @include placeholder {
+                            color: rgba($white, 1) !important;
+                        }
+                    }
+
+                    button.submit {
+                        font-family: $montserrat-font;
+                        text-align: center;
+                        padding: 1.3rem 2.5rem;
+                        font-size: 1.5rem;
+                        display: block;
+                        margin: 0 0 0 2%;
+                        float: left;
+                        width: 30%;
+                        height: 5rem;
+                        background: $radical-red;
+                        color: $white;
+                        border: 2px solid $radical-red;
+                        @include border-radius(0);
+                        font-weight: $semi-bold;
+
+                        &:hover {
+                            background: darken($radical-red, 10%);
+                        }
+                    }
+                }
+            }
+
+            .block-message {
+                min-height: 50px;
+                position: absolute;
+                top: -100px;
+                width: 100%;
+                left: 0;
+                padding: 15px;
+                text-align: center;
+                background: transparent;
+                @include bezier-transition(all, 0.3s, cubic-bezier(0, 0, 0.58, 1));
+
+                &.show-block-error {
+                    top: 0;
+                    background: $torch-red;
+                }
+
+                &.show-block-valid {
+                    top: 0;
+                    background: $caribbean-green;
+                }
+            }
+
+            p.notify-valid {
+                color: $white;
+                text-transform: none;
+                font-size: 16px;
+                letter-spacing: 0;
+                font-weight: $semi-bold;
+            }
+        }
+    }
+
+    /* ------------------------------------- */
+    /* 7. CONTACT .......................... */
+    /* ------------------------------------- */
+
+    &#contact {
+        background: $white;
+        padding: 0 0 10rem;
+
+        #contact-form {
+            margin-top: 40px;
+
+            .form-control {
+                background: $white;
+                border: 1px solid rgba($black, 0.1);
+                @include border-radius(0);
+                box-shadow: none;
+                font-weight: $normal;
+                outline: medium none;
+                padding: 1.6rem 3rem;
+                font-size: 1.4rem;
+                line-height: 1.4;
+                height: auto;
+                width: 100%;
+                color: $black;
+                margin-bottom: 2rem;
+                @include bezier-transition(all, $fast-transition, ease-in-out);
+                text-align: left;
+
+                &:hover, &:focus {
+                    box-shadow: none;
+                    border-color: rgba($black, 0.2);
+                }
+
+                @include placeholder {
+                    color: $dove-gray !important;
+                }
+            }
+
+            textarea.form-control {
+                min-height: 150px;
+            }
+
+            button#valid-form {
+                font-family: $montserrat-font;
+                padding: 1.3rem 2.5rem;
+                font-size: 1rem;
+                display: block;
+                margin: 0;
+                background: $shark;
+                text-transform: uppercase;
+                letter-spacing: 0.5rem;
+                color: $white;
+                @include border-radius(0);
+                font-weight: $normal;
+                width: 100%;
+
+                &:hover {
+                    background: darken($shark, 10%);
+                    color: $white;
+                }
+            }
+        }
+
+        #block-answer {
+            position: absolute;
+            width: 100%;
+            margin-top: 1em;
+            text-align: center;
+            color: $raven;
+        }
+
+        .success-message, .error-message {
+            color: $raven;
+
+            p {
+                color: $raven !important;
+                font-weight: 600;
+            }
+
+            .ion-checkmark-round {
+                color: $green-alert;
+            }
+        }
+
+        .error-message {
+            .ion-close-round {
+                color: $torch-red;
+            }
+        }
+    }
+}
+
+/* ------------------------------------- */
+/* 8. Footer ........................... */
+/* ------------------------------------- */
+
+footer {
+    position: relative;
+    background: transparent;
+    padding: 4rem;
+    z-index: 100;
+
+    &.particles-variant {
+        background: $shark;
+    }
+
+    p {
+        font-family: $montserrat-font;
+        text-align: left;
+        font-size: 1.1rem;
+        text-transform: uppercase;
+        letter-spacing: 0.5rem;
+        color: $raven;
+
+        &.copyright {
+            text-transform: none;
+            letter-spacing: 0;
+        }
+
+        &.social-links {
+            text-align: right;
+
+            a {
+                &:hover {
+                    color: lighten($shark, 30%);
+                }
+            }
+
+            i {
+                color: $white;
+            }
+
+            .tooltip-inner {
+                @include border-radius(3px);
+            }
+
+            /* Facebook */
+            a.fb-tooltip + .tooltip {
+
+                .tooltip-inner {
+                    background: $facebook;
+                    color: $white;
+                    letter-spacing: 0;
+                    text-transform: none;
+                }
+
+                .tooltip-arrow {
+                    border-top-color: $facebook;
+                }
+            }
+
+            /* Twitter */
+            a.tw-tooltip + .tooltip {
+
+                .tooltip-inner {
+                    background: $twitter;
+                    color: $white;
+                    letter-spacing: 0;
+                    text-transform: none;
+                }
+
+                .tooltip-arrow {
+                    border-top-color: $twitter;
+                }
+            }
+
+            /* Google+ */
+            a.gp-tooltip + .tooltip {
+
+                .tooltip-inner {
+                    background: $googleplus;
+                    color: $white;
+                    letter-spacing: 0;
+                    text-transform: none;
+                }
+
+                .tooltip-arrow {
+                    border-top-color: $googleplus;
+                }
+            }
+
+            /* Linkedin */
+            a.lk-tooltip + .tooltip {
+
+                .tooltip-inner {
+                    background: $linkedin;
+                    color: $white;
+                    letter-spacing: 0;
+                    text-transform: none;
+                }
+
+                .tooltip-arrow {
+                    border-top-color: $linkedin;
+                }
+            }
+
+            /* YouTube */
+            a.yt-tooltip + .tooltip {
+
+                .tooltip-inner {
+                    background: $youtube;
+                    color: $white;
+                    letter-spacing: 0;
+                    text-transform: none;
+                }
+
+                .tooltip-arrow {
+                    border-top-color: $youtube;
+                }
+            }
+
+            /* SoundCloud */
+            a.sc-tooltip + .tooltip {
+
+                .tooltip-inner {
+                    background: $soundcloud;
+                    color: $white;
+                    letter-spacing: 0;
+                    text-transform: none;
+                }
+
+                .tooltip-arrow {
+                    border-top-color: $soundcloud;
+                }
+            }
+        }
+    }
+}
+
+/* ------------------------------------- */
+/* 9. Triangle separator ............... */
+/* ------------------------------------- */
+
+.newsletter-trig, .intro-trig {
+    height: 200px;
+    margin-top: 5rem;
+
+    &:before {
+        content: '';
+        position: absolute;
+        border-top: 200px solid transparent;
+        border-right: 100vw solid $white;
+    }
+
+    &:after {
+        content: '';
+        position: absolute;
+        border-top: 200px solid transparent;
+        border-left: 100vw solid $white;
+    }
+}
+
+.intro-trig {
+    position: relative;
+    margin-top: 100vh;
+    height: 100px;
+    z-index: 50;
+}
+
+/* ------------------------------------- */
+/* GALLERY PHOTOS ...................... */
+/* ------------------------------------- */
+
+.pswp__bg {
+    background: darken(rgba($shark, 0.9), 15%);
+}
+
+.pswp__top-bar, .pswp__caption {
+    background: transparent !important;
+}
+
+.pswp__caption h4 {
+    margin-bottom: 10px !important;
+    color: $white;
+}
+
+.pswp__caption p {
+    color: lighten($dove-gray, 10%);
+}
+
+/* ------------------------------------- */
+/* Particles animation ................. */
+/* ------------------------------------- */
+
+#particles {
+    opacity: 0.6;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: fixed;
+    z-index: -10;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+/* ------------------------------------- */
+/* 10. Media Queries ................... */
+/* ------------------------------------- */
+
+/* Large Devices, Wide Screens @media only screen and (max-width: 1600px) */
+@include desktop {}
+
+
+/* Notebook devices @media only screen and (max-width: 1199px) */
+@include notebook {}
+
+
+/* Medium Devices, Desktops @media only screen and (max-width: 1024px) */
+@include medium {
+    footer {
+        background: $shark;
+    }
+}
+
+
+/* Small Devices, Tablets @media only screen and (max-width: 768px) */
+@include tablet {
+    footer {
+        p {
+            text-align: center !important;
+            margin-bottom: 2rem;
+        }
+    }
+
+    .scroll-indicator {
+        &.go-top {
+            position: relative;
+            bottom: 0;
+        }
+    }
+}
+
+
+/* Extra Small Devices, Phones @media only screen and (max-width: 480px) */
+@include phone {
+    h1 {
+        font-size: 4rem;
+    }
+
+    .first-word {
+        display: block;
+    }
+
+    .tasty-www {
+        letter-spacing: -1.5rem;
+        margin-right: 1.5rem;
+    }
+
+    section#home {
+        position: relative;
+        height: auto;
+        padding: 5rem 0;
+
+        .brand-logo {
+            display: block;
+            position: relative;
+            margin: auto;
+            left: auto;
+            top: auto;
+            @include transform(translateX(0));
+        }
+
+        .content {
+            position: relative;
+            left: auto;
+            top: auto;
+            margin-top: 2rem;
+            @include transform(translateY(0));
+
+            p {
+                font-size: 1.5rem;
+            }
+
+            nav li {
+                display: block;
+                width: 100%;
+
+                a {
+                    width: 100%;
+
+                    &.light-btn {
+                        margin-bottom: 2rem;
+                    }
+                }
+            }
+        }
+    }
+
+    .scroll-indicator {
+        position: relative;
+        bottom: -5rem;
+    }
+
+    .intro-trig {
+        margin-top: 0;
+    }
+
+    section#newsletter {
+        padding: 12rem 0 0;
+    }
+
+    section#newsletter #subscribe #notifyMe .form-group .form-control {
+        width: 100%;
+        float: none;
+    }
+
+    section#newsletter #subscribe #notifyMe .form-group button.submit {
+        width: 100%;
+        margin: 2rem auto 0;
+    }
+
+    section#contact {
+        padding: 0 0 5rem;
+
+        #block-answer {
+            position: relative;
+            min-height: 60px;
+        }
+    }
+
+    footer p {
+        letter-spacing: 0;
+        font-size: 1.3rem;
+    }
+}
+
+
+/* Only for tablet in landscape mode @media only screen and (max-device-width: 1024px) and (orientation: landscape) */
+@include landscape-tablet {}
+
+
+/* Only for phone in landscape mode @media screen and (max-device-width: 667px) and (orientation: landscape) */
+@include landscape-phone {
+
+    section#home {
+        position: relative;
+        height: auto;
+        padding: 5rem 0;
+
+        .brand-logo {
+            display: block;
+            position: relative;
+            margin: auto;
+            left: auto;
+            top: auto;
+            @include transform(translateX(0));
+        }
+
+        .content {
+            position: relative;
+            left: auto;
+            top: auto;
+            margin-top: 2rem;
+            @include transform(translateY(0));
+        }
+    }
+
+    .scroll-indicator {
+        position: relative;
+        bottom: 0;
+        margin-top: 2rem;
+    }
+
+    .intro-trig {
+        margin-top: 0;
+    }
+
+}
